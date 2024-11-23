@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>   
+
+    <link rel="stylesheet" href="style.css">  </head>
+<body>
+
+    <div class="container">   
+
+        <h2>Login</h2>
+        <form id="login-form">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>   
+
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>   
+
+        <div id="error-message"></div> 
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const errorMessage = document.getElementById('error-message');
+
+        loginForm.addEventListener('submit',   
+ (event) => {
+            event.preventDefault(); 
+
+            const username   
+ = document.getElementById('username').value;
+            const password = document.getElementById('password').value;   
+
+
+            // Here you would typically make a fetch request to your server
+            // to authenticate the user. For this example, we'll just 
+            // simulate a successful login.
+            
+            // Replace this with your actual authentication logic
+            if (username === 'testuser' && password === 'password') {
+                // Redirect to the main page or perform other actions
+                window.location.href = 'index_main.html'; 
+            } else {
+                errorMessage.textContent = 'Invalid username or password';
+            }
+        });
+    </script>
+
+</body>
+</html>
