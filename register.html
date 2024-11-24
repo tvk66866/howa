@@ -31,15 +31,15 @@
                     <option value="paid">Paid</option>
                 </select>
             </div>
+            <div> 
+                <label for="pdf-upload">Upload your contract:</label>
+                <input type="file" id="pdf-upload" name="pdf-upload" accept=".pdf">
+            </div>
             <button type="submit">Subscribe</button>
         </form>
         <div id="error-message"></div> 
     </div>
     <div class="container">
-        <h2>Subscribe to Home Warranty Automation</h2>
-        <form id="subscription-form">
-            </form>
-        <div id="error-message"></div> 
         <a href="index.html">Go back to Home</a> <div> </div>
     </div>
 
@@ -64,6 +64,15 @@
                 address: address,
                 plan: plan
             };
+
+            const pdfUpload = document.getElementById('pdf-upload').files[0];
+            if (pdfUpload) {
+            // You would typically use FormData to send the file to your server
+            console.log('PDF file:', pdfUpload); 
+            // ... (your file upload logic) ...
+            } else {
+                console.log('No PDF file selected.');
+            }
 
             // Send a POST request to your server-side API endpoint
             fetch('/api/save-subscription', { // Replace with your actual API endpoint
